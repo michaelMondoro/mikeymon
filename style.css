@@ -280,7 +280,7 @@ body,html {
 
 
 .item {
-    padding: 10px;
+    padding: 5px 15px 5px 15px;
     color: white;
 }
 .item p {
@@ -291,7 +291,7 @@ body,html {
 }
 .skills {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 
 }
 .skill {

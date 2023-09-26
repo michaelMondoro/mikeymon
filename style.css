@@ -192,7 +192,7 @@ body,html {
 .portfolio {
     display: grid; 
     grid-template-columns: 1fr 1fr; 
-    grid-template-rows: repeat(3, 20em);
+    grid-template-rows: repeat(2, 20em);
     row-gap: 4em;
 
     justify-items:center;

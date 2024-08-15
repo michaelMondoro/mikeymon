@@ -31,7 +31,7 @@ if __name__=="__main__":
     links += "</links>"
 
     if len(links) <= 16:
-        links = f"<div>nothing here right now</div>"
+        links = f"<div>nothing here right now <emoji>&#129323;</emoji></div>"
     # move html data into index.html template
     with open('template.html', 'r') as f:
         template = f.read()

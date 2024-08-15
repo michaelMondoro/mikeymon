@@ -7,3 +7,10 @@ document.querySelectorAll('code').forEach((tag) => {
 })
 
 
+let emoji = document.querySelector('emoji');
+emoji.addEventListener('mouseover', (e) => {
+    e.target.innerHTML = "&#129327;";
+})
+emoji.addEventListener('mouseout', (e) => {
+    e.target.innerHTML = "&#129323;";
+})

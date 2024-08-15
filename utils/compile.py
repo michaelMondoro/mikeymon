@@ -30,7 +30,8 @@ if __name__=="__main__":
             links += f"<a href='static/articles/{filename}'>{filename}</a>\n"
     links += "</links>"
 
-
+    if len(links) <= 16:
+        links = f"<div>nothing here right now</div>"
     # move html data into index.html template
     with open('template.html', 'r') as f:
         template = f.read()

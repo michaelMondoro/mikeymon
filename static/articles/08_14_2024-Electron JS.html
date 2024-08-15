@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+        <title>michaelmondoro</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script defer src="../js/main.js"></script>
+    </head>
+
+    <body>
+        <div class="header">
+            <span>
+                <a class="hover" href="https://github.com/michaelMondoro" target="_blank"><i class="fa fa-github hover icon"></i></a>
+                <a class="hover" href="https://www.linkedin.com/in/michael-mondoro-8b7423151/" target="_blank"><i class="fa fa-linkedin hover icon"></i></a>
+            </span>
+            
+            <span></span>
+        </div>
+        <div class="container">
+            <article data-timestamp='Aug 14, 2024'>
+<h1>Electron JS</h1>
+<p>In the evolving landscape of software development, creating desktop applications that are both powerful and accessible across multiple platforms can be challenging. This is where Electron.js comes into play. Electron.js has gained significant traction as a framework for building cross-platform desktop applications using familiar web technologies. Let’s dive into what makes Electron.js a popular choice for developers and how it leverages the power of modern web development.</p>
+<h4>What is Electron.js?</h4>
+<p>Electron.js, developed by GitHub, is an open-source framework that allows developers to build desktop applications using web technologies such as HTML, CSS, and JavaScript. Launched in 2013, Electron combines the Chromium rendering engine and the Node.js runtime to provide a robust platform for creating desktop apps. This means that developers can use a single codebase to target Windows, macOS, and Linux. <code>print("this is awesome")</code></p>
+<p><b>example</b></p>
+<pre>
+npm init
+npm install electron --save-dev
+</pre>
+<pre>
+const { app, BrowserWindow } = require('electron');
+const path = require('path');
+function createWindow() {
+  const mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js')
+    }
+  });
+
+  mainWindow.loadFile('index.html');
+}
+app.whenReady().then(() => {
+  createWindow();
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    }
+  });
+});
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
+</pre>
+
+</article><hr>
+    
+        </div>
+
+        <script>
+            document.querySelectorAll('pre').forEach((tag) => {
+                tag.classList.add('prettyprint');
+            })
+        </script>
+    </body>
+</html>

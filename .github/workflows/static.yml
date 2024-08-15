@@ -53,12 +53,15 @@ jobs:
           git push
       
       - name: Setup Pages
+        if: always()
         uses: actions/configure-pages@v5
       - name: Upload artifact
+        if: always()
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
           path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
+        if: always()
         uses: actions/deploy-pages@v4

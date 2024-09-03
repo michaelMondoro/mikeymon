@@ -27,7 +27,7 @@ if __name__=="__main__":
             with open(f"static/articles/{filename}", 'w') as f:
                 f.write(updated)
             
-            links += f"<a href='static/articles/{filename}'>{filename}</a>\n"
+            links += f"<a href='static/articles/{filename}'>{filename.replace('.html','')}</a>\n"
     links += "</links>"
 
     if len(links) <= 16:

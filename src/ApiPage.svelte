@@ -30,10 +30,10 @@
         <input bind:value={ipInput} type="text" placeholder="ip address">
         <button>check</button>
     </form>
+    
     {#if data && data.city}
         <div class="grid" in:fade={{ duration: 1500 }}>
-            <h2>{data.ip}</h2>
-            <span></span>
+            <h3>{data.ip} <emoji>🌎</emoji></h3>
             <span>
                 <h2>Location</h2>
                 <h3>{data.city}, {data.country}</h3>

@@ -3,13 +3,12 @@
   import ApiPage from "./ApiPage.svelte";
   import { fade } from "svelte/transition";
   import WelcomePage from "./WelcomePage.svelte";
+  import { currentPage } from "./store";
 
   let ready = false;
-  let selected = "";
   
   onMount(() => { 
     ready = true;
-    selected = "home";
     })
 </script>
 <main>
@@ -19,8 +18,8 @@
           <span class="">Michael Mondoro | <b>Software Engineer</b></span>
       </span>
       <div class="links header-item">
-        <button on:click={() => selected="home"} class="{selected=="home" ? 'selected':''}">portfolio</button>
-        <button on:click={() => selected="ip api"} class="{selected=="ip api" ? 'selected':''}">geo ip</button>
+        <button on:click={() => currentPage.set("home")} class="{$currentPage=="home" ? 'selected':''}">portfolio</button>
+        <button on:click={() => currentPage.set("ip api")} class="{$currentPage=="ip api" ? 'selected':''}">geo ip</button>
       </div>
       <span class="header-item">
         <a class="hover" href="https://github.com/michaelMondoro" target="_blank"><i class="fa fa-github hover icon"></i></a>
@@ -28,9 +27,9 @@
     </span>
     </div>
   {/if}
-  {#if selected === "home"}
+  {#if $currentPage === "home"}
   <WelcomePage />
-  {:else if selected === "ip api"}
+  {:else if $currentPage === "ip api"}
   <ApiPage />
   {/if}
 </main>

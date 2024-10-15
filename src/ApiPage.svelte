@@ -2,7 +2,7 @@
     import Map from "./Map.svelte";
     import { fade } from "svelte/transition";
     import Loader from "./Loader.svelte";
-
+    
     let data;
     let ipInput;
     let error;

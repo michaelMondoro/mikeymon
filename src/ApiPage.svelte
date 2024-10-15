@@ -3,13 +3,20 @@
 
     let data;
     let ipInput;
+    let error;
 
     async function getIP(e) {
         e.preventDefault()
-        let res = await fetch(`http://137.184.198.186:80/api/ip_please?ip=${ipInput ? ipInput : ''}`)
-        data = await res.json()
-        ipInput = undefined;
-        console.log(data)
+        try {
+            let res = await fetch(`https://mikeymon.dev/api/ip_please?ip=${ipInput ? ipInput : ''}`)
+            data = await res.json()
+            ipInput = undefined;
+            console.log(data)
+        } catch (err) {
+            error = err;
+            console.log(err)
+        }
+        
     }
 </script>
 
@@ -40,6 +47,10 @@
     
     {:else if data && data.error}
         <p class="error">{data.error}</p>
+    {/if}
+
+    {#if error}
+        <p class="error">{error}</p>
     {/if}
     
 </div>

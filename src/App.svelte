@@ -1,19 +1,21 @@
 <script>
-import { fade } from "svelte/transition";
+  import { onMount } from "svelte";
+  import ApiPage from "./ApiPage.svelte";
 
+let ready = false;
+onMount(() => ready = true)
 </script>
 <main>
-  <div class="header" in:fade={{ delay: 250, duration: 300 }}>
+  <div class="header">
     <span>
         <a class="hover" href="https://github.com/michaelMondoro" target="_blank"><i class="fa fa-github hover icon"></i></a>
         <a class="hover" href="https://www.linkedin.com/in/michael-mondoro-8b7423151/" target="_blank"><i class="fa fa-linkedin hover icon"></i></a>
     </span>
     <span></span>
   </div>
-  <div class="container">
-    <h2>nothing here <emoji>&#128640;</emoji></h2>
-    
-  </div>
+  {#if ready}
+    <ApiPage />
+  {/if}
 </main>
 
   
@@ -25,22 +27,6 @@ main {
 
 a {
   color: var(--main-color);
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.hover:hover {
-  color: rgb(82, 154, 254);
-}
-
-.icon {
-  font-size: 25px;
-  padding: .5em .5em;
 }
 
 .header {

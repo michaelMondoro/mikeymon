@@ -6,7 +6,7 @@
 
     async function getIP(e) {
         e.preventDefault()
-        let res = await fetch(`http://137.184.198.186:5000/api/ip_please?ip=${ipInput ? ipInput : ''}`)
+        let res = await fetch(`http://137.184.198.186:80/api/ip_please?ip=${ipInput ? ipInput : ''}`)
         data = await res.json()
         ipInput = undefined;
         console.log(data)

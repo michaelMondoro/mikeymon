@@ -8,7 +8,7 @@
 
     onMount(() => getIP())
     async function getIP(e) {
-        e.preventDefault()
+        if (e) e.preventDefault()
         try {
             let res = await fetch(`https://mikeymon.dev/api/ip_please?ip=${ipInput ? ipInput : ''}`)
             data = await res.json()

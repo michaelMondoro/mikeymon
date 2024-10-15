@@ -9,6 +9,7 @@
   
   onMount(() => { 
     ready = true;
+    if (!$currentPage) currentPage.set("home")
     })
 </script>
 <main>
@@ -32,6 +33,7 @@
   {:else if $currentPage === "ip api"}
   <ApiPage />
   {/if}
+  <br><br>
 </main>
 
   

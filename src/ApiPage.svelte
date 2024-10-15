@@ -1,12 +1,11 @@
 <script>
-    import { onMount } from "svelte";
     import { fade } from "svelte/transition";
 
     let data;
     let ipInput;
     let error;
 
-    onMount(() => getIP())
+
     async function getIP(e) {
         if (e) e.preventDefault()
         try {

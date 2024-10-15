@@ -32,6 +32,8 @@
     </form>
     {#if data && data.city}
         <div class="grid" in:fade={{ duration: 1500 }}>
+            <h2>{data.ip}</h2>
+            <span></span>
             <span>
                 <h2>Location</h2>
                 <h3>{data.city}, {data.country}</h3>

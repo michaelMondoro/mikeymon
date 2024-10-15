@@ -5,14 +5,15 @@
     let data;
     let ipInput;
     let error;
-
-    onMount(() => getIP())
+    let mine = true;
+    
     async function getIP(e) {
         if (e) e.preventDefault()
         try {
             let res = await fetch(`https://mikeymon.dev/api/ip_please?ip=${ipInput ? ipInput : ''}`)
             data = await res.json()
             ipInput = undefined;
+            mine = true;
             console.log(data)
         } catch (err) {
             error = err;
@@ -29,9 +30,10 @@
     </div>
     <br>
     <form class="horizontal-flex" on:submit={getIP}>
-        <input bind:value={ipInput} type="text" placeholder="ip address">
-        <button>check</button>
+        <input bind:value={ipInput} on:input={() => {mine = (ipInput.length>0) ? false : true}} type="text" placeholder="ip address">
+        <button>{mine ? "check my ip" : "search ip"}</button>
     </form>
+    <br>
     
     {#if data && data.city}
         <div class="grid" in:fade={{ duration: 1500 }}>

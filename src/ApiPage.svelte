@@ -1,5 +1,5 @@
 <script>
-    import { onMount } from "svelte";
+    import Map from "./Map.svelte";
     import { fade } from "svelte/transition";
     import Loader from "./Loader.svelte";
 
@@ -28,9 +28,9 @@
 </script>
 
 <div class="container" in:fade={{ duration: 1000 }}>
-    <div id="heading">
+    <div class="heading">
         <h3>Geo IP API <emoji>&#128640;</emoji></h3>
-        <span class="subheading">get ip address info</span>
+        <span class="subheading">get some cool info about your (or anyone else's) ip address</span>
     </div>
     <br>
     <form class="horizontal-flex" on:submit={getIP}>
@@ -51,12 +51,14 @@
                 <h3>({data.coordinates.longitude}, {data.coordinates.latitude})</h3>
             </span>
             <span>
-                <h2>ASN Info</h2>
-                <h3>{data.asn.org}</h3>
-                <h3>{data.asn.number}</h3>  
+                <h2>Info</h2>
+                <h3><span class="subheading">Org:</span> {data.asn.org}</h3>
+                <h3><span class="subheading">ASN #:</span> {data.asn.number}</h3>  
             </span> 
         </div>
-    
+
+        <br>
+        <Map data={data}/>
     
     {:else if data && data.error}
         <p class="error">{data.error}</p>
@@ -119,15 +121,12 @@ h2 {
     display: flex;
 }
 
+.heading {
+    text-align: center;
+}
 .subheading {
   color: var(--secondary-color);
-}
 
-.underline {
-  border-bottom: solid var(--secondary-color) 1px;
-}
-.underline:hover {
-    border-color: rgb(82, 154, 254);
 }
 
 .container {

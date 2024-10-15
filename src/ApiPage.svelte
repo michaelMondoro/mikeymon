@@ -1,15 +1,18 @@
 <script>
     import { onMount } from "svelte";
     import { fade } from "svelte/transition";
+    import Loader from "./Loader.svelte";
 
     let data;
     let ipInput;
     let error;
     let mine = true;
+    let loading = false;
     
     async function getIP(e) {
         if (e) e.preventDefault()
-        try {
+        try {   
+            loading = true;
             let res = await fetch(`https://mikeymon.dev/api/ip_please?ip=${ipInput ? ipInput : ''}`)
             data = await res.json()
             ipInput = undefined;
@@ -19,14 +22,15 @@
             error = err;
             console.log(err)
         }
+        loading = false;
         
     }
 </script>
 
-<div class="container" in:fade={{ duration: 1500 }}>
+<div class="container" in:fade={{ duration: 1000 }}>
     <div id="heading">
         <h3>Geo IP API <emoji>&#128640;</emoji></h3>
-        <span class="subheading">get your IP info <span class="underline hover">FREE!</span></span>
+        <span class="subheading">get ip address info</span>
     </div>
     <br>
     <form class="horizontal-flex" on:submit={getIP}>
@@ -34,9 +38,11 @@
         <button>{mine ? "check my ip" : "search ip"}</button>
     </form>
     <br>
-    
-    {#if data && data.city}
-        <div class="grid" in:fade={{ duration: 1500 }}>
+    {#if loading}
+        <Loader />
+    {/if}
+    {#if !loading && data && data.city}
+        <div class="grid" in:fade={{ duration: 1000 }}>
             <h3>{data.ip} <emoji>🌎</emoji></h3>
             <span></span>
             <span>
@@ -75,8 +81,8 @@ button {
 
 button:hover {
     color: var(--main-color);
-    background-color: rgba(99, 99, 99, 0);
-    border-radius: .3em;
+    background-color: rgba(47, 47, 47, 0);
+    border-radius: 1em;
     text-decoration: underline;
 }
 

@@ -1,14 +1,14 @@
 import { writable } from "svelte/store";
 
-const storedPage = localStorage.getItem("page");
+const storedPage = sessionStorage.getItem("page");
 export const currentPage = writable(storedPage);
-currentPage.subscribe(value => localStorage.setItem("page", value));
+currentPage.subscribe(value => sessionStorage.setItem("page", value));
 
 
-const storedApiPage = localStorage.getItem("apiPageSelected")
+const storedApiPage = sessionStorage.getItem("apiPageSelected")
 export const ipApiSelectedPage = writable(storedApiPage);
-ipApiSelectedPage.subscribe(value => localStorage.setItem("apiPageSelected", value))
+ipApiSelectedPage.subscribe(value => sessionStorage.setItem("apiPageSelected", value))
 
-const storedIPData = localStorage.getItem("ipData")
+const storedIPData = sessionStorage.getItem("ipData")
 export const currentIPData = writable(storedIPData);
-currentIPData.subscribe(value => localStorage.setItem("ipData", value))
+currentIPData.subscribe(value => sessionStorage.setItem("ipData", value))

@@ -5,8 +5,8 @@
 </script>
 
 <div class="center" in:fade={{ delay: 200, duration: 1500 }}>
+  
   <h2 style="border-bottom:solid var(--main-color) 1px">Projects</h2>
-
   <div class="content" >
       <Project
       title="EasyRSS" 
@@ -44,7 +44,6 @@
   </div>
 </div>
 <style>
-
 .center {
   display: flex;
   justify-content: center;

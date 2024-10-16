@@ -63,6 +63,9 @@
     border-top-right-radius: .3em;
     width: 100%;
 }
+.desc::-webkit-scrollbar {
+    display: none;
+}
 .horizontal {
     display: flex; 
     align-items:center;

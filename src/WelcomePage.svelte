@@ -44,14 +44,6 @@
   </div>
 </div>
 <style>
-.quote {
-  height: 5em;
-  display: flex;
-  align-items: center;
-  border-left: solid rgb(245, 245, 245) 1px;
-  padding: 1em;
-  transition: all .5s;
-}
 
 .center {
   display: flex;
@@ -63,7 +55,6 @@
 .content {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
 }
 
 @media only screen and (max-width: 700px) {

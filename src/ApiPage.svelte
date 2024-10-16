@@ -18,6 +18,7 @@
         if ($currentIPData) {
             data = JSON.parse($currentIPData);
         }
+        if (!$ipApiSelectedPage) ipApiSelectedPage.set("service")
     })
     
     async function getIP(e) {

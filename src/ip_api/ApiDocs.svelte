@@ -56,9 +56,6 @@
 </div>
 
 <style>
-i >span {
-    font-family: inherit;
-}
 .desc {
     display: flex;
     justify-content: space-between;

@@ -7,7 +7,7 @@
 
     function copy(e) {
         navigator.clipboard.writeText(e.target.dataset.copy);
-        e.target.innerText = " copied"
+        e.target.innerHTML = "<span> copied</span>"
     }
 </script>
 
@@ -56,6 +56,9 @@
 </div>
 
 <style>
+i >span {
+    font-family: inherit;
+}
 .desc {
     display: flex;
     justify-content: space-between;

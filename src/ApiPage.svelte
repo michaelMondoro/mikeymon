@@ -50,7 +50,7 @@
     </div>
     <br>
     {#if $ipApiSelectedPage === "service"}
-        <form class="horizontal-flex" on:submit={getIP}>
+        <form class="horizontal-flex" on:submit={getIP} in:fade={{ duration: 1000 }}>
             <input bind:value={ipInput} on:input={() => {mine = (ipInput.length>0) ? false : true}} type="text" placeholder="ip address">
             <button type="submit" class="submit">{mine ? "check my ip" : "search ip"}</button>
         </form>

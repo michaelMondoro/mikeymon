@@ -1,8 +1,6 @@
 <script>
     import { fade } from "svelte/transition";
-    import { fly } from "svelte/transition";
-    import { quintOut } from 'svelte/easing';
-    import Project from "./Project.svelte";
+    import Project from "./components/Project.svelte";
 
 </script>
 

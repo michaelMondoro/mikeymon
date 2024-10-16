@@ -26,7 +26,7 @@
         <h3>Parameters</h3>
         <div class="horizontal">
             <span class="badge grey">OPTIONAL</span>
-            <pre style="border-right: solid var(--main-color) 1px; min-width: 4em;">{"{ ip }"}</pre><pre class="desc">address you want to get info on i.e. {"{ 78.251.236.95 }"}</pre>
+            <pre class="opt">{"{ ip }"}</pre><pre class="desc">address you want to get info on i.e. {"{ 78.251.236.95 }"}</pre>
         </div>
         <h3>Example</h3>
         <hr style="width: 100%">
@@ -63,7 +63,7 @@
     border-top-right-radius: .3em;
     width: 100%;
 }
-.desc::-webkit-scrollbar {
+.desc::-webkit-scrollbar, .opt::-webkit-scrollbar {
     display: none;
 }
 .horizontal {
@@ -86,6 +86,10 @@ pre {
     background-color: rgb(22, 22, 22);
     overflow-x: scroll;
     outline: none;
+}
+.opt {
+    border-right: solid var(--main-color) 1px; 
+    min-width: 4em;
 }
 .blue {
     background-color: rgb(2, 98, 195);

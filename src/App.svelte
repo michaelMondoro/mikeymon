@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import ApiPage from "./ApiPage.svelte";
+  import ApiPage from "./ip_api/ApiPage.svelte";
   import { fade } from "svelte/transition";
   import WelcomePage from "./WelcomePage.svelte";
   import { currentPage } from "./store";

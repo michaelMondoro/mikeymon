@@ -1,29 +1,29 @@
 <script>
-    import { ipApiSelectedPage } from "./store";
+    import { ipApiSelectedPage } from "../store.js";
     import { fade } from "svelte/transition";
 </script>
 
 <div class="api" in:fade={{ duration: 1000 }}>
-    <div class="header">
-        <button class="header-item" on:click={()=>ipApiSelectedPage.set("service")}><i class="fa fa-arrow-left hover icon"></i></button>
-        <h3 class="header-item">API Docs</h3>
-        <span class="header-item"></span>
-    </div>
     <div class="docs">
+        <div class="header">
+            <button class="header-item" on:click={()=>ipApiSelectedPage.set("service")}><i class="fa fa-arrow-left hover icon"></i></button>
+            <h3 class="header-item">API Docs</h3>
+            <span class="header-item"></span>
+        </div>
         <span style="color: var(--secondary-color);">keeping it simple</span>
         <div class="horizontal">
             <span class="badge green">GET</span>
-            <pre>https://mikeymon.dev/api/ip_please/</pre>
+            <pre class="desc">https://mikeymon.dev/api/ip_please/</pre>
         </div>
         <h3>Parameters</h3>
         <div class="horizontal">
             <span class="badge grey">optional</span>
-            <pre>{"{ ip }"}</pre><pre class="desc">address you want to get info on i.e. {"{ 78.251.236.95 }"}</pre>
+            <pre style="border-right: solid var(--main-color) 1px; min-width: 4em;">{"{ ip }"}</pre><pre class="desc">address you want to get info on i.e. {"{ 78.251.236.95 }"}</pre>
         </div>
         <h3>Example</h3>
         <hr style="width: 100%">
         <div class="horizontal">
-            <pre>curl -k https://mikeymon.dev/api/ip_please?ip=78.251.236.95</pre>
+            <pre class="desc">curl -k https://mikeymon.dev/api/ip_please?ip=78.251.236.95</pre>
         </div> 
         <pre>{
 `{
@@ -48,8 +48,9 @@
 
 <style>
 .desc {
-    border-left: solid var(--main-color) 1px;
-    padding: .5em;
+    border-bottom-right-radius: .3em;
+    border-top-right-radius: .3em;
+    width: 100%;
 }
 .horizontal {
     display: flex; 
@@ -60,28 +61,37 @@
     flex-direction: column;
     justify-content: start;
     align-items: left;
-    min-width: 70%;
-    padding: 1em;
     border-radius: .1em;
+    width: 75%;
+    overflow-x: hidden;
 }
 pre {
     font-size: large;
-    margin: 1em;
+    padding: 1em;
+    background-color: rgb(22, 22, 22);
+    overflow-x: scroll;
 }
 .green {
     background-color: green;
 }
+.green:hover {
+    box-shadow: green 0px 0px 5px;
+}
 .grey {
     background-color: gray;
 }
+.grey:hover {
+    box-shadow: gray 0px 0px 5px;
+}
 .badge {
-    padding: .5em 1em;
-    border-radius: .3em;
+    padding: 1em;
+    border-top-left-radius: .3em;
+    border-bottom-left-radius: .3em;
 }
 .api {
     display: flex;
+    width: 100%;
     flex-direction: column;
-    min-width: 50%;
     justify-content: space-between;
     align-items: center;
 }

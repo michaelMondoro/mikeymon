@@ -1,11 +1,11 @@
 <script>
-    import Map from "./Map.svelte";
+    import Map from "../Map.svelte";
     import ApiDocs from "./ApiDocs.svelte";
-    import Loader from "./Loader.svelte";
+    import Loader from "../Loader.svelte";
     import IpData from "./IpData.svelte";
     import { fade } from "svelte/transition";
-    import { ipApiSelectedPage } from "./store";
-    import { currentIPData } from "./store";
+    import { ipApiSelectedPage } from "../store";
+    import { currentIPData } from "../store";
     import { onMount } from "svelte";
 
     let data;

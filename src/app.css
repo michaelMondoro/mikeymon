@@ -29,7 +29,7 @@ body {
 
 .hover:hover {
   color: rgb(82, 154, 254);
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 
 .icon {

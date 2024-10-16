@@ -2,7 +2,7 @@
     export let title;
     export let desc;
     export let packageName;
-    export let version;
+    export let version=undefined;
     export let defaultLink=undefined;
     export let defaultImgLink=undefined;
     

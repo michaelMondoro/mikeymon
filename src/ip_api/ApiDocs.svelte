@@ -1,6 +1,14 @@
 <script>
     import { ipApiSelectedPage } from "../store.js";
     import { fade } from "svelte/transition";
+
+    let curlCommand = "curl -k https://mikeymon.dev/api/ip_please?ip=78.251.236.95";
+    let apiUrl = "https://mikeymon.dev/api/ip_please/";
+
+    function copy(e) {
+        navigator.clipboard.writeText(e.target.dataset.copy);
+        e.target.innerText = " copied"
+    }
 </script>
 
 <div class="api" in:fade={{ duration: 1000 }}>
@@ -13,17 +21,18 @@
         <span style="color: var(--secondary-color);">keeping it simple</span>
         <div class="horizontal">
             <span class="badge green">GET</span>
-            <pre class="desc">https://mikeymon.dev/api/ip_please/</pre>
+            <pre class="desc">{apiUrl} <i role="button" data-copy={apiUrl} on:click={copy} class="fa fa-clipboard hover"></i></pre>
         </div>
         <h3>Parameters</h3>
         <div class="horizontal">
-            <span class="badge grey">optional</span>
+            <span class="badge grey">OPTIONAL</span>
             <pre style="border-right: solid var(--main-color) 1px; min-width: 4em;">{"{ ip }"}</pre><pre class="desc">address you want to get info on i.e. {"{ 78.251.236.95 }"}</pre>
         </div>
         <h3>Example</h3>
         <hr style="width: 100%">
         <div class="horizontal">
-            <pre class="desc">curl -k https://mikeymon.dev/api/ip_please?ip=78.251.236.95</pre>
+            <span class="badge blue">REQUEST</span>
+            <pre class="desc">{curlCommand}<i role="button" data-copy={curlCommand} on:click={copy} class="fa fa-clipboard hover"></i></pre>
         </div> 
         <pre>{
 `{
@@ -48,13 +57,15 @@
 
 <style>
 .desc {
+    display: flex;
+    justify-content: space-between;
     border-bottom-right-radius: .3em;
     border-top-right-radius: .3em;
     width: 100%;
 }
 .horizontal {
     display: flex; 
-    align-items:center
+    align-items:center;
 }
 .docs {
     display: flex;
@@ -63,6 +74,7 @@
     align-items: left;
     border-radius: .1em;
     width: 75%;
+    padding: .5em;
     overflow-x: hidden;
 }
 pre {
@@ -70,6 +82,13 @@ pre {
     padding: 1em;
     background-color: rgb(22, 22, 22);
     overflow-x: scroll;
+    outline: none;
+}
+.blue {
+    background-color: rgb(2, 98, 195);
+}
+.blue:hover {
+    box-shadow: rgb(0, 128, 255) 0px 0px 5px;
 }
 .green {
     background-color: green;

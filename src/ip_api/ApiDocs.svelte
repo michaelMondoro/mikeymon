@@ -63,7 +63,7 @@
     border-top-right-radius: .3em;
     width: 100%;
 }
-.desc::-webkit-scrollbar, .opt::-webkit-scrollbar {
+pre::-webkit-scrollbar {
     display: none;
 }
 .horizontal {

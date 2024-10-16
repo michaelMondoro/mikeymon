@@ -61,19 +61,6 @@ button:hover {
   border-bottom: solid var(--main-color) 1px;
 }
 
-.header-item {
-  min-width: 15em;
-  text-align: center;
-}
-
-.header {
-  max-height: 3em;
-  /* width: 100%; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1em 1em;
-}
 
 @media only screen and (max-width: 700px) {
   .name {

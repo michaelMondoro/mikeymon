@@ -36,3 +36,25 @@ body {
   font-size: 20px;
   padding: .5em .5em;
 }
+
+.header-item {
+  min-width: 15em;
+  text-align: center;
+}
+
+.header {
+  max-height: 3em;
+  /* width: 100%; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1em;
+}
+
+button {
+  all: unset;
+  padding: .5em 1em;
+  cursor: pointer;
+  transition: all .2s;
+  margin: 0em .5em;
+}

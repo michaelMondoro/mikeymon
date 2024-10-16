@@ -34,7 +34,7 @@
             <span class="badge blue">REQUEST</span>
             <pre class="desc">{curlCommand}<i role="button" data-copy={curlCommand} on:click={copy} class="fa fa-clipboard hover"></i></pre>
         </div> 
-        <pre>{
+        <pre style="border-radius: .3em;">{
 `{
     "ip": "78.251.236.95",
     "city": "Paris",
@@ -113,6 +113,8 @@ pre {
     padding: 1em;
     border-top-left-radius: .3em;
     border-bottom-left-radius: .3em;
+    min-width: 5em;
+    text-align: center;
 }
 .api {
     display: flex;

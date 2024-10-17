@@ -33,7 +33,6 @@
             console.log(err)
         }
         loading = false;
-        
     }
 </script>
 

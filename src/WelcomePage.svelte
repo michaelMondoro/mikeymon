@@ -1,28 +1,38 @@
 <script>
     import { fade } from "svelte/transition";
+    import { fly } from "svelte/transition";
+    import { quintOut } from 'svelte/easing';
     import Project from "./components/Project.svelte";
-
 </script>
 
-<div class="center" in:fade={{ delay: 0, duration: 1000 }}>
+
+<div class="center" in:fade={{ delay: 200, duration: 1000 }}>
+  <div class="horizontal">
+    <pre in:fly={{ delay: 0, duration: 3000, x: -100, y: 0, opacity: 0.5, easing: quintOut }} class="left">
+      an idiot admires complexity, a genius admires simplicity</pre>
+    
+      <pre in:fly={{ delay: 200, duration: 3000, x: -100, y: 0, opacity: 0.5, easing: quintOut }} class="right">
+         - Terry Davis</pre>
+  </div>
   
+
   <h2 style="border-bottom:solid var(--main-color) 1px">Projects</h2>
   <div class="content" >
       <Project
       title="EasyRSS" 
-      desc="Python package for processing Atom and RSS feeds"
+      desc="Process and analyze both Atom and RSS feeds"
       packageName="easy_rss"
       version=1.2.5/>
 
       <Project
       title="GoogleTrendy" 
-      desc="Package for browsing Google Search Trends"
+      desc="Browse Google Search Trends with ease using Python!"
       packageName="google_trendy"
       version=1.5/>   
 
       <Project
       title="TheWeather" 
-      desc="Python package for getting weather data"
+      desc="Python weather module"
       packageName="the_weather"
       version=1.5/>   
   </div>
@@ -44,6 +54,20 @@
   </div>
 </div>
 <style>
+.horizontal {
+  display: flex;
+  flex-direction: column;
+  margin: 2em 0em;
+}
+.left { text-align: left;}
+.right {
+  text-align: right; 
+  margin-right: 2em;
+  color: var(--secondary-color);
+}
+pre {
+  margin: .5em;
+}
 .center {
   display: flex;
   justify-content: center;

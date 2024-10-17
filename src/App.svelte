@@ -6,11 +6,10 @@
   import { currentPage } from "./store";
 
   let ready = false;
-  
   onMount(() => { 
     ready = true;
     if (!$currentPage) currentPage.set("home")
-    })
+  })
 </script>
 <main>
   {#if ready}
@@ -29,9 +28,9 @@
     </div>
   {/if}
   {#if $currentPage === "home"}
-  <WelcomePage />
+    <WelcomePage />
   {:else if $currentPage === "ip api"}
-  <ApiPage />
+    <ApiPage />
   {/if}
   <br><br>
 </main>

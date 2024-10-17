@@ -7,6 +7,7 @@
     import { ipApiSelectedPage } from "../store";
     import { currentIPData } from "../store";
     import { onMount } from "svelte";
+    import { get } from "svelte/store";
 
     let data;
     let ipInput;
@@ -17,6 +18,8 @@
     onMount(() => {
         if ($currentIPData) {
             data = JSON.parse($currentIPData);
+        } else {
+            getIP();
         }
         if (!$ipApiSelectedPage) ipApiSelectedPage.set("service")
     })
@@ -27,7 +30,6 @@
             loading = true;
             let res = await fetch(`https://mikeymon.dev/api/ip_please?ip=${ipInput ? ipInput : ''}`)
             data = await res.json()
-            ipInput = undefined;
             mine = true;
             currentIPData.set(JSON.stringify(data))
             console.log($currentIPData)
@@ -44,17 +46,16 @@
     <div class="heading">
         <h3>Geo IP Service <emoji>&#128640;</emoji></h3>
         <span class="subheading">
-            get some cool info about your (or anyone else's) ip address. check out the API 
+            get some cool info about any ip address or hostname. check out the API 
             <span role="button" on:click={()=>ipApiSelectedPage.set("api")} class="hover link">here</span>
         </span>
     </div>
-    <br>
     {#if $ipApiSelectedPage === "service"}
         <form class="horizontal-flex" on:submit={getIP} in:fade={{ duration: 1000 }}>
             <input bind:value={ipInput} on:input={() => {mine = (ipInput.length>0) ? false : true}} type="text" placeholder="ip address">
             <button type="submit" class="submit">{mine ? "check my ip" : "search ip"}</button>
         </form>
-        <br>
+        
         {#if loading}
             <Loader />
         {/if}
@@ -116,10 +117,12 @@ h3 {
 
 .horizontal-flex {
     display: flex;
+    margin-bottom: 1em;
 }
 
 .heading {
     text-align: center;
+    margin-bottom: 1em;
 }
 .subheading {
   color: var(--secondary-color);

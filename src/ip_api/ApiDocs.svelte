@@ -2,7 +2,7 @@
     import { ipApiSelectedPage } from "../store.js";
     import { fade } from "svelte/transition";
 
-    let curlCommand = "curl -k https://mikeymon.dev/api/ip_please?ip=78.251.236.95";
+    let curlCommand = "curl -k https://mikeymon.dev/api/ip_please?ip=google.com";
     let apiUrl = "https://mikeymon.dev/api/ip_please/";
 
     function copy(e) {
@@ -26,7 +26,7 @@
         <h3>Parameters</h3>
         <div class="horizontal">
             <span class="badge grey">OPTIONAL</span>
-            <pre class="opt">{"{ ip }"}</pre><pre class="desc">address you want to get info on i.e. {"{ 78.251.236.95 }"}</pre>
+            <pre class="opt">{"{ ip }"}</pre><pre class="desc">address or host you want to get info on i.e. {"{ google.com }"}</pre>
         </div>
         <h3>Example</h3>
         <hr style="width: 100%">
@@ -36,18 +36,19 @@
         </div> 
         <pre style="border-radius: .3em;">{
 `{
-    "ip": "78.251.236.95",
-    "city": "Paris",
-    "country": "France",
-    "country_code": "FR",
-    "coordinates": {
-    "latitude": 48.8566,
-    "longitude": 2.35222
-    },
-    "asn": {
-    "number": 12322,
-    "org": "Free SAS"
-    }
+  "ip": "142.251.41.14",
+  "city": "New York",
+  "country": "United States",
+  "subdivision": "New York",
+  "country_code": "US",
+  "coordinates": {
+    "latitude": 40.7128,
+    "longitude": -74.006
+  },
+  "asn": {
+    "number": 15169,
+    "org": "Google LLC"
+  }
 }
 `
             }</pre>

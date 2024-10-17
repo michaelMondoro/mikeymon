@@ -4,7 +4,7 @@
 
 </script>
 
-<div class="center" in:fade={{ delay: 200, duration: 1500 }}>
+<div class="center" in:fade={{ delay: 0, duration: 1000 }}>
   
   <h2 style="border-bottom:solid var(--main-color) 1px">Projects</h2>
   <div class="content" >
@@ -28,7 +28,7 @@
   </div>
 
   <br><br>
-  <div class="content" in:fade={{ delay: 400, duration: 1500 }}>
+  <div class="content" in:fade={{ delay: 200, duration: 1000 }}>
       <Project
       title="fireship.io - videos"
       desc="Extension for viewing the latest and greatest from the fireship.io YouTube"

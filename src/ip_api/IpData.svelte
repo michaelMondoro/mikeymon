@@ -9,7 +9,7 @@
     <span></span>
     <span>
         <h2>Location</h2>
-        <h3>{data.city}, {data.country}</h3>
+        <h3>{data.city} {data.subdivision}, {data.country}</h3>
         <h3>({data.coordinates.longitude}, {data.coordinates.latitude})</h3>
     </span>
     <span>
@@ -34,5 +34,7 @@ h3 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 1em;
+    max-width: 70%;
+    margin-bottom: 1em;
 }
 </style>

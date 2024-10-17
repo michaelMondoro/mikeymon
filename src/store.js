@@ -1,5 +1,7 @@
 import { writable } from "svelte/store";
 
+export const mine = writable(true);
+
 const storedPage = sessionStorage.getItem("page");
 export const currentPage = writable(storedPage);
 currentPage.subscribe(value => sessionStorage.setItem("page", value));

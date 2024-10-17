@@ -4,15 +4,12 @@
     import Loader from "../components/Loader.svelte";
     import IpData from "./IpData.svelte";
     import { fade } from "svelte/transition";
-    import { ipApiSelectedPage } from "../store";
-    import { currentIPData } from "../store";
+    import { mine, currentIPData, ipApiSelectedPage } from "../store";
     import { onMount } from "svelte";
-    import { get } from "svelte/store";
 
     let data;
     let ipInput;
     let error;
-    let mine = true;
     let loading = false;
     
     onMount(() => {
@@ -30,9 +27,7 @@
             loading = true;
             let res = await fetch(`https://mikeymon.dev/api/ip_please?ip=${ipInput ? ipInput : ''}`)
             data = await res.json()
-            mine = true;
             currentIPData.set(JSON.stringify(data))
-            console.log($currentIPData)
         } catch (err) {
             error = err;
             console.log(err)
@@ -46,14 +41,14 @@
     <div class="heading">
         <h3>Geo IP Service <emoji>&#128640;</emoji></h3>
         <span class="subheading">
-            get some cool info about any ip address or hostname. check out the API 
+            get some cool info about any ip address or hostname on the internet. check out the API 
             <span role="button" on:click={()=>ipApiSelectedPage.set("api")} class="hover link">here</span>
         </span>
     </div>
     {#if $ipApiSelectedPage === "service"}
         <form class="horizontal-flex" on:submit={getIP} in:fade={{ duration: 1000 }}>
-            <input bind:value={ipInput} on:input={() => {mine = (ipInput.length>0) ? false : true}} type="text" placeholder="ip address">
-            <button type="submit" class="submit">{mine ? "check my ip" : "search ip"}</button>
+            <input bind:value={ipInput} on:input={() => {(ipInput.length>0) ? mine.set(false) : mine.set(true)}} type="text" placeholder="ip address">
+            <button type="submit" class="submit">{$mine ? "check my ip" : "search ip"}</button>
         </form>
         
         {#if loading}

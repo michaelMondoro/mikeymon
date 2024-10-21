@@ -2,6 +2,16 @@
     import L from 'leaflet';
     import { onMount } from 'svelte';
     import { fade } from 'svelte/transition';
+    import markerIcon from '../../static/marker-icon.png';
+    import markerShadowIcon from '../../static/marker-shadow.png';
+
+    let DefaultIcon = L.icon({
+		iconUrl: markerIcon,
+		shadowUrl: markerShadowIcon,
+		iconSize: [24,36],
+      	iconAnchor: [12,36]
+	});
+	L.Marker.prototype.options.icon = DefaultIcon;
 
     let map;
     export let data;

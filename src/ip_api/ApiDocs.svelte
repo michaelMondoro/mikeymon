@@ -2,8 +2,8 @@
     import { ipApiSelectedPage } from "../store.js";
     import { fade } from "svelte/transition";
 
-    let curlCommand = "curl -k https://mikeymon.dev/api/ip_please?ip=google.com";
-    let apiUrl = "https://mikeymon.dev/api/ip_please/";
+    let curlCommand = "curl -k https://mikeymon.dev/geoip/ip_please?ip=google.com";
+    let apiUrl = "https://mikeymon.dev/geoip/ip_please/";
 
     function copy(e) {
         navigator.clipboard.writeText(e.target.dataset.copy);

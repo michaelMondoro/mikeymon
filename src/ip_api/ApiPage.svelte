@@ -25,7 +25,7 @@
         if (e) e.preventDefault()
         try {   
             loading = true;
-            let res = await fetch(`https://mikeymon.dev/geoapi/ip_please?ip=${ipInput ? ipInput : ''}`)
+            let res = await fetch(`https://mikeymon.dev/geoip/ip_please?ip=${ipInput ? ipInput : ''}`)
             data = await res.json()
             currentIPData.set(JSON.stringify(data))
         } catch (err) {

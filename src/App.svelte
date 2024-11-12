@@ -3,6 +3,7 @@
   import ApiPage from "./ip_api/ApiPage.svelte";
   import { fade } from "svelte/transition";
   import WelcomePage from "./WelcomePage.svelte";
+  import BrainBrewPage from "./BrainBrewPage.svelte";
   import { currentPage } from "./store";
 
   let ready = false;
@@ -20,6 +21,7 @@
       <div class="links header-item">
         <button on:click={() => currentPage.set("home")} class="{$currentPage=="home" ? 'selected':''}">portfolio</button>
         <button on:click={() => currentPage.set("ip api")} class="{$currentPage=="ip api" ? 'selected':''}">geo ip</button>
+        <button on:click={() => currentPage.set("brainbrew")} class="{$currentPage=="brainbrew" ? 'selected':''}">BrainBrew</button>
       </div>
       <span class="header-item">
         <a class="hover" href="https://github.com/michaelMondoro" target="_blank"><i class="fa fa-github hover icon"></i></a>
@@ -31,6 +33,8 @@
     <WelcomePage />
   {:else if $currentPage === "ip api"}
     <ApiPage />
+  {:else if $currentPage == "brainbrew"}
+    <BrainBrewPage />
   {/if}
   <br><br>
 </main>
